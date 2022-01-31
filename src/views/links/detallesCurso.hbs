@@ -1,0 +1,110 @@
+<section class="packages" id="packages">
+    <div class="main-container">
+        <h2>Listado a detalle de curso de formacion continua</h2>
+        <p>A continuacion encontraras un mas informacion a detalle sobre el curso y sobre tu expositor, tambien puedes calificar el seleccionar recibir notificaciones
+            para enviarte un recordatorio de este curso unos dias antes de que empiece para que no lo olvides y si ya has culminado este curso de 
+            formacion continua estaremos encantados de recibir tus comentarios acerca de la experiencia
+        </p>
+        <div class="filter-container">
+            <div class="category-head">
+                <ul>
+                    <a href="../../links/SendC_Cur/{{id_curso.id_curso}}">
+                        <div class="category-title active" id="all">
+                            <li>Calificar Curso</li>
+                            <span><i class="fas fa-comments"></i></span>
+                        </div>
+                    </a>
+                    {{#ifeq notificacion.notificaciones '1'}}
+                    <a href="../../links/cancelNoti/{{id_curso.id_curso}}">
+                        <div class="category-title active" id="all">
+                            <li>No Recibir Notificaciones</li>
+                            <span><i class="fas fa-bell"></i></span>
+                        </div>
+                    </a>
+                    {{else}}
+                    <a href="../../links/sendNoti/{{id_curso.id_curso}}">
+                        <div class="category-title active" id="all">
+                            <li>Recibir Notificaciones</li>
+                            <span><i class="fas fa-bell"></i></span>
+                        </div>
+                    </a>
+                    {{/ifeq}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{{#each cursos}}
+<section class="sessions mt-5" id="sessions">
+    <div class="mt-5">
+        <div class="wrapper testimonial-grid3">
+            <div class="slide testimonial">
+                <div class="icons top">
+                    <a href="/"> <i class="fab fa-joomla"></i>Curso de Formacion Continua</a>
+                </div>
+                <img src="/uploads/{{img}}" alt="">
+                <div class="icons bot">
+                    <a href="/"> <i class="fas fa-calendar"></i> {{moment fecha_in format="YYYY-MM-DD"}} / {{moment
+                        fecha_fin
+                        format="YYYY-MM-DD"}}</a>
+                    <a href="/"> <i class="fas fa-dollar-sign"></i>Costo: ${{costo}}</a>
+                    <a href="/"> <i class="fas fa-ticket-alt"></i>#Cupos: {{cupos}} </a>
+                    <a href="/"> <i class="fas fa-user"></i>{{nombre}} {{apellido}}</a>
+                </div>
+                <h3>{{title}}</h3>
+                <p>{{descripcion}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="codigoQR  ">
+    <div class="testimonial-grid2 m-5 ">
+        <div class="m-5" style="justify-self: end;">
+            <img src="/uploads/{{foto}}" style="border-radius: 50%;" width="200px" height="200px" alt="">
+        </div>
+        <div class="m-5 registro-contenido">
+            <h1>Expositor/ra</h1>
+            <h2>{{titulo}} {{nombre}} {{apellido}}</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non laudantium, voluptatum a nulla distinctio
+                sit ipsum aliquam corrupti veritatis nemo.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<section class="codigoQR  ">
+    <div class="testimonial-grid2 m-5 ">
+        <div class="m-5" style="justify-self: end;">
+            <img alt="Código QR" id="codigo">
+        </div>
+        <input type="url" value="{{linkRegistro}}" style="display: none;" id="link">
+        <div class="m-5 registro-contenido">
+            <h2>Registro del Curso </h2>
+            <p>Puede scanear el codigo QR o clickear el boton de registrarse para poder proceder con todos
+                los pasos para su matricula en el curso
+                de aprendizaje continuo
+            </p>
+            <a href="{{linkRegistro}}" class="btn5">Registrarme</a>
+        </div>
+    </div>
+</section>
+<div class="img-detalles">
+    <img src="/uploads/{{img}}" class="d-block w-75 mx-auto" alt="...">
+</div>
+
+
+
+<script>
+    new QRious({
+        element: document.querySelector("#codigo"),
+        value: document.querySelector("#link").value, // La URL o el texto
+        size: 200,
+        backgroundAlpha: 0, // 0 para fondo transparente
+        foreground: "#8bc34a", // Color del QR
+        level: "H", // Puede ser L,M,Q y H (L es el de menor nivel, H el mayor)
+    });
+</script>
+{{/each}}

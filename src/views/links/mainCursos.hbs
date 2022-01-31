@@ -1,0 +1,47 @@
+<section class="packages"  id="packages">
+    <div class="main-container">
+        <h2>Panel Administrador de Cursos de Formacion Continua</h2>
+        <div class="filter-container">
+            <div class="category-head">
+                <ul>
+                    <a href="./addCurso">
+                        <div class="category-title active" id="all">
+                            <li>Agregar Curso de Formacion Continua</li>
+                            <span><i class="fas fa-comments"></i></span>
+                        </div>
+                    </a>
+                    <a href="./allcursos">
+                        <div class="category-title active" id="all">
+                            <li>Gestionar Curso de Formacion Continua</li>
+                            <span><i class="fas fa-comments"></i></span>
+                        </div>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="packages" style="margin-top: 0%;" id="packages">
+    <h1 class="heading">Cursos de Formacion Continua</h1>
+    <div class="box-container testimonial-grid m-5">
+        {{#each cursos}}
+            <div class="box mt-3 mb-5">
+                <div class="image">
+                    <img src="/uploads/{{img}}" alt="">
+                </div>
+                <div class="content">
+                    <h3>{{title}}</h3>
+                    
+                    <p>{{descripcion}}</p>
+                    <div class="price">{{moment fecha_in format="YYYY/MM/DD"}} - {{moment fecha_fin format="YYYY/MM/DD"}}</div>
+                    <div class="price">Precio: {{costo}}</div>
+                    <div class="price">Cupos: {{cupos}}</div>
+                    <a href="../links/detalles/{{id_curso}}" class="btn5">Ver mas</a>
+
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</section>

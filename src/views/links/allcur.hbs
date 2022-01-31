@@ -1,0 +1,36 @@
+
+<section class="packages" id="packages">
+    <h1 class="heading mt-5">Gestion de Cursos de educacion continua</h1>
+    <div class="box-container testimonial-grid m-5 mt-5">
+        {{#each cursos}}
+        <div class="box mt-3 mb-5">
+            <div class="image">
+                <img src="/uploads/{{img}}" alt="">
+            </div>
+            <div class="content">
+                <h3>{{title}}</h3>
+                <p>{{moment fecha_in format="YYYY/MM/DD"}} - {{moment fecha_fin format="YYYY/MM/DD"}}</p>
+                <h5>Costo: {{costo}}</h5>
+                <h5>Cupos: {{cupos}}</h5>
+                <h5>Sitio: {{sitio}}</h5>
+                <h5>Duracion {{duracion}}</h5>
+                <p>Numero de Curso: {{id_curso}}</p>
+                <a href="/links/editCurso/{{id_curso}}" class="btn5">Editar</a>
+                <a href="/links/deleteCur/{{id_curso}}" class="btn5">Eliminar</a>
+            </div>
+        </div>
+        {{else}}
+    </div>
+    <div class="col-md-4 mx-auto">
+        <div class="text-center">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>No hay cursos disponibles! </strong><a href="/links/addWeb">Agrega uno!</a>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div class="mb-5">
+        </div>
+    </div>
+
+    <div style="margin-bottom: 5%;">
+        {{/each}}
+    </div>
+</section>

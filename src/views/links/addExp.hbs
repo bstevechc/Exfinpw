@@ -1,0 +1,36 @@
+<div class="container p-4 mt-5 " >
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <div class="card ">
+                <div class="card-body">
+                    <form action="/links/resExp" method="post" enctype="multipart/form-data">
+                    <h4>Agregar Expositor</h4>
+                        <div class="form-group mt-3">
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input name="apellido" class="form-control" placeholder="Apellido" ></input>
+                        </div>
+                        <div class="form-group mt-3">
+                            <select name="descripcion" id="">
+                                <option value="Ing">Ingeniero</option>
+                                <option value="PhD"> Doctorado Profesional</option>
+                                <option value="MSc">Maestria en Ciencias</option>
+                                <option value="Expositor">Expositor</option>
+                                <option value="Mgtr">Magister</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="file" name="foto" id="">
+                        </div>
+                        <div class="form-group mt-3 d-grid">
+                            <button class="btn btn-success btn-block">Save</button>
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

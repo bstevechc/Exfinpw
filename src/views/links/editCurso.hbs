@@ -1,0 +1,98 @@
+<div class="container p-4 mt-5 ">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <div class="card ">
+                <div class="card-body">
+                    <form action="/links/editCur/res/{{cursos2.id_curso}}" method="post">
+                        <h4>Agregar Curso</h4>
+                        <div class="form-group mt-3">
+                            <h5>Carrera del Curso</h5>
+                            <select name="id_carrera" id="">
+                                <option value="{{cursos2.id_carrera}}">{{cursos2.n_carrera}}</option>
+                                {{#each carreras}}
+                                <option value="{{cursos.id}}">{{n_carrera}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" value="{{cursos2.title}}" name="title" class="form-control"
+                                placeholder="Titulo">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Seleccionar Modalidad</h5>
+                            <select name="modalidad" id="">
+                                <option value="{{cursos2.modalidad}}">{{cursos2.modalidad}}</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Virtual">Virtual</option>
+                                <option value="Hibrida">Hibrida</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Descripcion</h5>
+                            <textarea name="descripcion" cols="60" rows="2"
+                                placeholder="Descripcion del Webinar">{{cursos2.descripcion}}</textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Fecha de Inicio</h5>
+                            <h5>Fecha actual : {{moment cursos2.fecha_in format="YYYY/MM/DD"}}</h5>
+                            <input name="old_fecha_in" value="{{cursos2.fecha_in}}" style="display: none;">
+                            <input type="datetime-local" name="fecha_in" class="form-control" placeholder="Fecha" id="">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Fecha Culminacion del Curso</h5>
+                            <h5>Fecha actual : {{moment cursos2.fecha_fin format="YYYY/MM/DD"}}</h5>
+                            <input type="datetime-local" name="fecha_fin" class="form-control" placeholder="Fecha"
+                                id="">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Costo de Curso</h5>
+                            <input type="number" value="{{cursos2.costo}}" name="costo" min="0.00" max="10000.00"
+                                step="0.01" class="form-control" placeholder="costo">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Cupos de Curso</h5>
+                            <input type="number" value="{{cursos2.cupos}}" name="cupos" class="form-control"
+                                placeholder="cupos">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Sitio de Curso</h5>
+                            <input type="text" value="{{cursos2.sitio}}" name="sitio" class="form-control"
+                                placeholder="Sitio o plataforma donde se tendra el Curso">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Duracion de Curso</h5>
+                            <input type="number" value="{{cursos2.duracion}}" name="duracion" class="form-control"
+                                placeholder="Duracion del Curso">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Imagen Actual</h5>
+                            <a href="img/{{cursos2.id_curso}}" class="btn btn-primary btn-lg active"
+                                role="button" aria-pressed="true">Editar Imagen</a>
+                            <img src="/uploads/{{cursos2.img}} " width="150px" height="150px" alt="">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Link de Registro</h5>
+                            <input type="url" value="{{cursos2.linkRegistro}}" name="linkRegistro" class="form-control"
+                                placeholder="URL de Registro"></input>
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Expositor del Webinar</h5>
+                            <select name="id_expositor" id="">
+                                <option value="{{cursos2.id_expositor}}">{{cursos2.apellido}} {{cursos2.nombre}}</option>
+                                {{#each expositores}}
+                                <option value="{{id_expositor}}">{{apellido}} {{nombre}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 d-grid">
+                            <button class="btn btn-success btn-block">Save</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

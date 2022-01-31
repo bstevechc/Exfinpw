@@ -1,0 +1,43 @@
+<div class="container p-4 mt-5 ">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <div class="card ">
+                <div class="card-body">
+
+                    <form action="https://formsubmit.co/leytonvalencia.6190@hotmail.com" method="post"
+                        enctype="multipart/form-data">
+                        <h4>Enviar Correo de </h4>
+                        <div class="form-group mt-3">
+                            <input type="text" name="name" class="form-control" placeholder="Name"
+                                value="Correo de Notificacion de UPS_Meeting">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" name="title" class="form-control" placeholder="Title"
+                                value="Recordatorio de {{webinar.title}}">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="hidden" name="_cc" value="
+                                {{#each emails}}{{email}},{{/each}}productionsp2@gmail.com" class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea name="descripcion" rows="3" class="form-control" placeholder="Descripcion">Ya falta poco para que empiece!!
+                                Titulo: {{webinar.title}}
+                                
+                                Descripcion: {{webinar.descripcion}}
+                                Fecha de Inicio: {{moment webinar.fecha format="YYYY-MM-DD"}}
+                                
+                                </textarea>
+                        </div>
+
+                        <div class="form-group mt-3 d-grid">
+                            <button class="btn btn-success btn-block">Save</button>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

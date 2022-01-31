@@ -1,0 +1,30 @@
+{{!-- Aqui realizaremos nuestro formulario de inicio de sesion --}}
+{{!-- Definimos como se va a ver --}}
+<br>
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto mt-5">
+            <div class="card text-center mt-5">
+                <div class="card-header">
+                    <h3>Iniciar Sesion</h3>
+                </div>
+                <div class="card-body">
+                    <img src="imgages/logoUPS.png" alt="" class="card-img-top mx-auto m-2 w-50">
+                    <form action="/signin" method="POST">
+                        <div class="mb-3">
+                            <input type="email" name="email" placeholder="Email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" name="password" placeholder="contraseña" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-success btn-block">
+                                Iniciar Sesion
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

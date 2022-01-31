@@ -1,0 +1,61 @@
+
+<div class=" container p-4  ">
+    <div class="row vh-100 justify-content-center align-items-center ">
+        <div class="col-auto   mx-auto formulario ">
+            <div class="card ">
+                <div class="card-body">
+                    <form action="/links/editWeb/res/{{webinar2.id_webinar}}" method="post" >
+                        <h4>Editar Webinar</h4>
+                        <div class="form-group mt-3">
+                            <h5>Carrera del webinar</h5>
+                            <select name="id_carrera" id="">
+                                {{#each webinar}}
+                                <option value="{{id_carrera}}">{{n_carrera}}</option>
+                                {{/each}}
+                                {{#each carreras}}
+                                <option value="{{id_carrera}}">{{n_carrera}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="text" name="title" class="form-control" value="{{webinar2.title}}" placeholder="Titulo">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="url" name="n_sesion" class="form-control" value="{{webinar2.n_sesion}}" placeholder="URL de ingreso"></input>
+                        </div>
+                        <div class="form-group mt-3">
+                            <textarea name="descripcion" cols="60" rows="2" 
+                                placeholder="Descripcion del Webinar" >{{webinar2.descripcion}}</textarea>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="datetime-local" name="fecha" class="form-control" value="{{webinar2.fecha}}"  placeholder="Fecha" id="">
+                            <p>Fecha seleccionada: {{webinar2.fecha}}</p>
+                            <input style="display: none;" type="text" name="fechaOld" value="{{webinar2.fecha}}">
+                        </div>
+                        <div class="form-group mt-3">
+                            <a href="res/img/{{webinar2.id_webinar}}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar Imagen</a>
+                            <img src="/uploads/{{webinar2.img}} " width="150px" height="150px" alt="">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Expositor del Webinar</h5>
+                            <select name="id_expositor" id="">
+                                {{#each webinar}}
+                                    <option value="{{id_expositor}}">{{apellido}} {{nombre}}</option>
+                                {{/each}}
+                                {{#each expositores}}
+                                    <option value="{{id_expositor}}">{{apellido}} {{nombre}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group mt-3 d-grid">
+                            <button class="btn btn-success btn-block">Save</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

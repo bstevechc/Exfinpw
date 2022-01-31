@@ -1,0 +1,34 @@
+{{!-- Aqui realizaremos nuestro formulario de registro --}}
+{{!-- Definimos como se va a ver --}}
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto mt-5">
+            <div class="card text-center mt-5">
+                <div class="car-header mt-5">
+                    <h3>Registrarse</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/signup" method="POST">
+                        <div class="form-goup mt-3">
+                            <input type="email" name="email" placeholder="Email" class="form-control" autofocus>
+                        </div>
+                        <div class="form-goup mt-3">
+                            <input type="text" name="nombres" placeholder="Nombres" class="form-control">
+                        </div>
+                        <div class="form-goup mt-3">
+                            <input type="text" name="apellidos" placeholder="Apellidos" class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="password" name="password" placeholder="contrasenia" class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <button class="btn btn-success btn-block">
+                                Registrarse
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

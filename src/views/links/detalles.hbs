@@ -1,0 +1,64 @@
+<div class="portada" id="portada">
+    {{#each cursos}}
+
+    <div class="header">
+        <h1 class="logotipo">{{title}}</h1>
+        <p class="mensaje">{{n_materia}}</p>
+        <p class="mensaje">Expositor: {{n_expositor}}</p>
+        <p class="mensaje">Tiempo para dar inicio</p>
+    </div>
+
+    <div id="cuenta" class="contador"></div>
+
+    <div class="redes-sociales">
+        <a href="" class="btn-red-social"><i class="fab fa-facebook-f"></i></a>
+        <a href="" class="btn-red-social"><i class="fab fa-twitter"></i></a>
+        <a href="" class="btn-red-social"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
+
+<main class="contenedor">
+
+
+
+    <section class="home" id="home">
+        <div class="img-detalles">
+            <img src="/images/prueba_navidad.jpg" class="d-block w-75 mx-auto" alt="...">
+        </div>
+        <div class="home-slider">
+            <div class="wrapper">
+                <div class="slide2">
+                    <div class="container_detlles">
+                        <div class="card_meeting">
+                            <div class="left-column background-left">
+                                <h2 class="mt-5">Carrera Computacion</h2>
+                                <h2 class="mt-5">Docente Investigador UPS</h2>
+                                <img class="mt2" src="/uploads/235b3401-caac-4fc6-90d7-bc76d60ee526.jpg" alt="">
+                                <h2 class="mt-5">Ing. Jose Luis Aguayo </h2>
+                            </div>
+                            <div class="right-column">
+                                <div class="info-session">
+                                    <h3>Reunion virtual</h3>
+                                    <h4>Zoom</h4>
+                                </div>
+
+                                <h2 class="mt-5">Webinar Hacking vs Ciberseguridad</h2>
+                                <p>La carrera de computación invita al webinar “Hacking vs. ciberseguridad” el cual
+                                    propone compartir algunas herramientas web que ayudan a verificar la exposición
+                                    de
+                                    todos en el ciberespacio.
+                                </p>
+                                <div class="btn3-right">
+                                    <button class="btn3">Iniciar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{/each}}

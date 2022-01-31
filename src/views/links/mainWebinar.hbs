@@ -1,0 +1,61 @@
+<section class="packages" id="packages">
+    <div class="main-container">
+        <h2>Panel Administrador de Webinares</h2>
+        <div class="filter-container">
+            <div class="category-head">
+                <ul>
+                    <a href="./addWeb">
+                        <div class="category-title active" id="all">
+                            <li>Agregar Webinar</li>
+                            <span><i class="fas fa-comments"></i></span>
+                        </div>
+                    </a>
+                    <a href="./allwebinar">
+                        <div class="category-title active" id="all">
+                            <li>Gestionar Webinar</li>
+                            <span><i class="fas fa-comments"></i></span>
+                        </div>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="packages" id="packages">
+    <div class="main-container">
+        <h2>Listado de Webinares en Sistema</h2>
+        <p></br></br></p>
+        <div class="filter-container">
+            <div class="posts-collect">
+                <div class="post-main-container">
+                    {{#each webinar}}
+                    <div class="all {{monthWebinar}}">
+                        <div class="post-img">
+                            <img src="/uploads/{{img}}" alt="post">
+                            <span class="category-name">Webinar #{{id_webinar}}</span>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-content-top">
+                                <span><i class="fas fa-calendar"></i> {{moment fecha format="YYYY-MM-DD"}}</span>
+                                <span><i class="fas-fa-coment"></i>Webinar Gratuito!</span>
+                            </div>
+                            <h2>{{title}}</h2>
+                            <p>{{descripcion}}</p>
+
+                        </div>
+                        <div class="botones">
+                            <button type="button" class="read-btn">Ver Detalles</button>
+                        </div>
+
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

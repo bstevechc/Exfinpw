@@ -1,0 +1,109 @@
+<div style="margin-top: 5%;">
+    <section class="shop m-5" id="shop">
+        <h1 class="heading mt-5">Tus Webinar</h1>
+        <div class="swiper product-slider mt-5">
+            <div class="swiper-wrapper">
+                {{#each webinar}}
+                <div class="swiper-slide slide">
+                    <div class="image">
+                        <a href="/links/detallesW/{{id_webinar}}"><img src="uploads/{{img}}" alt=""></a>
+                        <div class="icons">
+                            <h5 >Ingresar<a href="{{n_sesion}}" target="_blank" class="fas fa-sign-in-alt"></a></h5>
+                            <h5>Mas Info<a href="links/detallesW/{{id_webinar}}" class="fas fa-info-circle"></a></h5>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>webinar</h3>
+                        <h4>{{title}}</h4>
+                        <div class="price"> {{moment fecha format="YYYY-MM-DD"}}</div>
+                        <div class="stars">
+
+                            <h4><i class="fas fa-chalkboard-teacher"></i> {{nombre}} {{apellido}}</h4>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+<section class="packages" id="packages">
+    <div class="main-container">
+        <h2>Quieres hechar un vistazo al calendario de webinars?</h2>
+        <p>Sabemos que no siempre se tiene tiempo, pero no esta de mas revisar los diferentes webinar que tenemos disponibles y quizas plantearte unirte 
+            a futuro, recuerda que siempre puedes marcar la opcion de 'Recibir Notificacion', la cual te notificara del evento virtual un dia antes.
+        </p>
+        <div class="filter-container">
+            <div class="category-head">
+                <ul>
+                    <div class="category-title active" id="all">
+                        <li>Todos</li>
+                        <span><i class="fas fa-border-all"></i></span>
+                    </div>
+
+                    <div class="category-title" id="{{meses.NEXTMONTH}}">
+                        <li>Este Mes</li>
+                        <span><i class="fas fa-border-all"></i></span>
+                    </div>
+
+                    <div class="category-title" id="{{meses.NEXTMONTH2}}">
+                        <li>Mes Sigiente</li>
+                        <span><i class="fas fa-border-all"></i></span>
+                    </div>
+
+                    <div class="category-title" id="{{meses.NEXTMONTH3}}">
+                        <li>Dentro de 3 meses</li>
+                        <span><i class="fas fa-border-all"></i></span>
+                    </div>
+                </ul>
+            </div>
+            <div class="posts-collect">
+                <div class="post-main-container">
+                    {{#each webinar}}
+                    <div class="all {{monthWebinar}}">
+                        <div class="post-img">
+                            <img src="uploads/{{img}}" alt="post">
+                            <span class="category-name">Webinar #{{id_webinar}}</span>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-content-top">
+                                <span><i class="fas fa-calendar"></i> {{moment fecha format="YYYY-MM-DD"}}</span>
+                                <span><i class="fas-fa-coment"></i>Webinar Gratuito!</span>
+                            </div>
+                            <h2>{{title}}</h2>
+                            <p>{{descripcion}}</p>
+
+                        </div>
+                        <div class="botones">
+                            <button type="button"  class="read-btn">Unirse </button>
+                            <button type="button" class="read-btn">Calificar</button>
+                            <button type="button" class="read-btn">Recibir Notificacion</button>
+                        </div>
+
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
