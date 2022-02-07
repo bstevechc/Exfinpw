@@ -729,8 +729,8 @@ main {
 	-webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 	border-radius: .5rem;
-	max-width: 300px;
-	width: 270px;
+	max-width: 330px;
+	width: 330px;
   }
   
   .packages .box-container .box:hover {
