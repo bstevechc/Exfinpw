@@ -5,6 +5,10 @@ const helpers = {};
 const helpers2 = {};
 
 
+function now() {
+    return "Fecha Hoy";
+}
+
 
 helpers.timeago = (timestamp) => {
     return format(timestamp);

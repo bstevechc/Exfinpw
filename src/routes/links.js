@@ -97,7 +97,9 @@ router.get('/detalles/:id_curso',isLoggedIn, async(req,res)=>{
     const {id_curso} = req.params;
     const cursos =  await pool.query('SELECT id_curso, expositores.foto,expositores.descripcion as titulo, n_carrera, title, modalidad, cursos.descripcion, fecha_in, fecha_fin, sitio,duracion,costo,cupos,img,linkRegistro,nombre, apellido from expositores, carrera, cursos where expositores.id_expositor = cursos.id_expositor and carrera.id_carrera = cursos.id_carrera and id_curso = ?;',[id_curso]);
     notificacion = await pool.query('select notificaciones,id_curso from cursos_users where id_user = ? and id_curso = ?',[req.user.id_user, id_curso])
-    res.render('links/detallesCurso',{cursos,notificacion:notificacion[0],id_curso:req.params});
+    const comentarios = await pool.query('SELECT id_comentario, descripcion, nota, apellidos, nombres from usuario, cursos_comentarios WHERE usuario.id_user = cursos_comentarios.id_user and id_curso = ? ',[id_curso]);
+    console.log(comentarios)
+    res.render('links/detallesCurso',{cursos,notificacion:notificacion[0],id_curso:req.params,comentarios});
 });
 
 //ver detalles webinar
@@ -105,7 +107,9 @@ router.get('/detallesW/:id_webinar', async(req,res)=>{
     const {id_webinar} = req.params;
     const notificacion = await pool.query('select notificaciones,id_webinar from webinar_users where id_user = ? and id_webinar = ?',[req.user.id_user, id_webinar])
     const webinar =  await pool.query('select MONTH(fecha) as monthWebinar, id_webinar, carrera.n_carrera, title, n_sesion, webinar.descripcion, fecha, img, expositores.nombre, expositores.apellido, expositores.foto,expositores.descripcion as cargo from webinar,  expositores,carrera where webinar.id_expositor = expositores.id_expositor and webinar.id_carrera = carrera.id_carrera and id_webinar= ?;',[id_webinar]);
-    res.render('links/detallesWeb',{webinar,notificacion:notificacion[0],id_webinar:req.params});
+    const comentarios = await pool.query('SELECT id_comentario, descripcion, nota, apellidos, nombres from usuario, webinar_comentarios WHERE usuario.id_user = webinar_comentarios.id_user and id_webinar = ? ',[id_webinar]);
+    console.log(comentarios)
+    res.render('links/detallesWeb',{webinar,notificacion:notificacion[0],id_webinar:req.params, comentarios});
 });
 
 

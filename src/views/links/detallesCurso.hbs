@@ -1,17 +1,15 @@
 <section class="packages" id="packages">
     <div class="main-container">
         <h2>Listado a detalle de curso de formacion continua</h2>
-        <p>A continuacion encontraras un mas informacion a detalle sobre el curso y sobre tu expositor, tambien puedes
-            calificar el seleccionar recibir notificaciones
-            para enviarte un recordatorio de este curso unos dias antes de que empiece para que no lo olvides y si ya
-            has culminado este curso de
+        <p>A continuacion encontraras un mas informacion a detalle sobre el curso y sobre tu expositor, tambien puedes calificar el seleccionar recibir notificaciones
+            para enviarte un recordatorio de este curso unos dias antes de que empiece para que no lo olvides y si ya has culminado este curso de 
             formacion continua estaremos encantados de recibir tus comentarios acerca de la experiencia
         </p>
         <div class="filter-container">
             <div class="category-head">
                 <ul>
                     <a href="../../links/SendC_Cur/{{id_curso.id_curso}}">
-                        <div class="category-title active" class="calificacion" id="all">
+                        <div class="category-title active" id="all">
                             <li>Calificar Curso</li>
                             <span><i class="fas fa-comments"></i></span>
                         </div>
@@ -108,10 +106,44 @@
         foreground: "#8bc34a", // Color del QR
         level: "H", // Puede ser L,M,Q y H (L es el de menor nivel, H el mayor)
     });
-
-</script>
-
-
-
 </script>
 {{/each}}
+
+
+
+
+
+<section class="packages" id="packages">
+    <div class="main-container">
+        <h2>Comentarios sobre el Curso</h2>
+        <div class="filter-container">
+            <div class="category-head">
+                <div class="row mx-auto container-fluid">
+                    <div class="row">
+                        {{#each comentarios}}
+                        <div class="col-sm-6 mt-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{apellidos}} {{nombres}}</h3>
+                                    <p class="card-text">Calificacion: {{nota}}/5</p>
+                                    <p>{{descripcion}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="col-md-4 mx-auto">
+                            <div class="text-center">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>No hay comentarios aun! </strong><a href="../../links/SendC_Web/{{id_webinar.id_webinar}}">Agrega uno!</a>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

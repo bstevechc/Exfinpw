@@ -1,8 +1,10 @@
 <section class="packages" id="packages">
     <div class="main-container">
         <h2>Listado a detalle de Webinar</h2>
-        <p>A continuacion encontraras un mas informacion a detalle sobre el webinar y sobre tu expositor, tambien puedes calificar el seleccionar recibir notificaciones
-            para enviarte un recordatorio de este webinar unos dias antes de que empiece para que no lo olvides y si ya has culminado este webinar de 
+        <p>A continuacion encontraras un mas informacion a detalle sobre el webinar y sobre tu expositor, tambien puedes
+            calificar el seleccionar recibir notificaciones
+            para enviarte un recordatorio de este webinar unos dias antes de que empiece para que no lo olvides y si ya
+            has culminado este webinar de
             formacion continua estaremos encantados de recibir tus comentarios acerca de la experiencia
         </p>
         <div class="filter-container">
@@ -46,10 +48,12 @@
                 </div>
                 <img src="/uploads/{{img}}" alt="">
                 <div class="icons bot">
-                    <a href="/"> <i class="fas fa-calendar"></i> {{moment fecha format="dddd, MMMM Do YYYY, h:mm:ss a"}}</a>
+                    <a href="/"> <i class="fas fa-calendar"></i> {{moment fecha format="dddd, MMMM Do YYYY, h:mm:ss
+                        a"}}</a>
                     <a href="/"> <i class="fas fa-user"></i>{{nombre}} {{apellido}}</a>
                 </div>
                 <h3>{{title}}</h3>
+                <h3>Fecha Hoy: {{now}}</h3>
                 <p>{{descripcion}}</p>
             </div>
         </div>
@@ -76,10 +80,11 @@
         <div class="m-5" style="justify-self: end;">
             <img alt="Código QR" id="codigo">
         </div>
-        <input type="url" value="{{n_sesion}}" style="display: none;"  id="link">
+        <input type="url" value="{{n_sesion}}" style="display: none;" id="link">
         <div class="m-5 registro-contenido">
             <h2>Ingreso al Webinar</h2>
-            <p>Esto al ser un curso Webinar totalmente gratuito puedes ingresar libremente, recuerda pasarte por esta pagina luego para que
+            <p>Esto al ser un curso Webinar totalmente gratuito puedes ingresar libremente, recuerda pasarte por esta
+                pagina luego para que
                 nos puedas dejar tus comentarios sobre tu experiencia
             </p>
             <a href="{{n_sesion}}" target="_blank" class="btn5">Ingresar</a>
@@ -103,3 +108,40 @@
     });
 </script>
 {{/each}}
+
+
+
+<section class="packages" id="packages">
+    <div class="main-container">
+        <h2>Comentarios sobre el Webinar</h2>
+        <div class="filter-container">
+            <div class="category-head">
+                <div class="row mx-auto container-fluid">
+                    <div class="row">
+                        {{#each comentarios}}
+                        <div class="col-sm-6 mt-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{apellidos}} {{nombres}}</h3>
+                                    <p class="card-text">Calificacion: {{nota}}/5</p>
+                                    <p>{{descripcion}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {{else}}
+                        <div class="col-md-4 mx-auto">
+                            <div class="text-center">
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>No hay comentarios aun! </strong><a href="../../links/SendC_Web/{{id_webinar.id_webinar}}">Agrega uno!</a>
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
