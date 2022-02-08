@@ -33,7 +33,11 @@ router.get('/addMateria',isLoggedIn,(req,res)=>{
     res.render('links/addMateria');
 });
 
-router.get('/',async(req,res)=>{
+router.get('/aboutUs',(req,res)=>{
+    res.render('links/aboutUs');
+});
+
+router.get('/', isLoggedIn,async(req,res)=>{
     const webinar =  await pool.query('select MONTH(fecha) as monthWebinar, id_webinar, carrera.n_carrera, title, n_sesion, webinar.descripcion, fecha, img, expositores.nombre, expositores.apellido from webinar,  expositores,carrera where webinar.id_expositor = expositores.id_expositor and webinar.id_carrera = carrera.id_carrera and NOW() < fecha;');
     const meses = await pool.query('SELECT MONTH(DATE_ADD(CURDATE(), INTERVAL 0 MONTH)) AS NEXTMONTH, MONTH(DATE_ADD(CURDATE(), INTERVAL 1 MONTH)) AS NEXTMONTH2, MONTH(DATE_ADD(CURDATE(), INTERVAL 2 MONTH)) AS NEXTMONTH3,MONTH(DATE_ADD(CURDATE(), INTERVAL 3 MONTH)) AS NEXTMONTH4');
     const cursos =  await pool.query('SELECT id_curso, n_carrera, title, modalidad, cursos.descripcion, fecha_in, fecha_fin, sitio,duracion,costo,cupos,img,linkRegistro,nombre, apellido from expositores, carrera, cursos where expositores.id_expositor = cursos.id_expositor and carrera.id_carrera = cursos.id_carrera');
@@ -103,7 +107,7 @@ router.get('/detalles/:id_curso',isLoggedIn, async(req,res)=>{
 });
 
 //ver detalles webinar
-router.get('/detallesW/:id_webinar', async(req,res)=>{
+router.get('/detallesW/:id_webinar', isLoggedIn, async(req,res)=>{
     const {id_webinar} = req.params;
     const notificacion = await pool.query('select notificaciones,id_webinar from webinar_users where id_user = ? and id_webinar = ?',[req.user.id_user, id_webinar])
     const webinar =  await pool.query('select MONTH(fecha) as monthWebinar, id_webinar, carrera.n_carrera, title, n_sesion, webinar.descripcion, fecha, img, expositores.nombre, expositores.apellido, expositores.foto,expositores.descripcion as cargo from webinar,  expositores,carrera where webinar.id_expositor = expositores.id_expositor and webinar.id_carrera = carrera.id_carrera and id_webinar= ?;',[id_webinar]);
@@ -611,5 +615,39 @@ router.post('/config', isLoggedIn, async(req,res)=>{
     res.redirect('/links/config')
 })
 
+
+
+router.get('/editUsers', isLoggedIn, async(req,res)=>{
+    const users = await pool.query('SELECT * FROM usuario where id_user != ?',[req.user.id_user]);
+    console.log(users)
+    res.render('links/user',{users});
+})
+router.get('/deleteUsers/:id_user', isLoggedIn, async(req,res)=>{
+    const {id_user} = req.params
+    await pool.query('DELETE FROM usuario where id_user = ?',[id_user])
+    req.flash('messages2', 'Usuario eliminado correctamente');
+    res.redirect('/links/editUsers')
+})
+
+router.get('/editUsers/:id_user', isLoggedIn, async(req,res)=>{
+    const{id_user} = req.params;
+    const datos = await pool.query('select * from usuario where id_user = ?', [id_user]);
+    res.render('links/editUser',{datos:datos[0]})
+})
+
+
+router.post('/editUsers/:id_user', isLoggedIn, async(req,res)=>{
+    const{id_user} = req.params;
+    const {nombres,apellidos,tipo_user} = req.body
+    const newDatos = {
+        nombres,
+        apellidos,
+        tipo_user,
+    }
+    console.log(newDatos)
+    req.flash('messages2', 'Usuario editado correctamente');
+    pool.query('UPDATE usuario set ? where id_user = ?', [newDatos,id_user])
+    res.redirect('/links/editUsers')
+})
 
 module.exports = router;

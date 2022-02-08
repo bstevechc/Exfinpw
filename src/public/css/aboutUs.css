@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+
+.principal {
+  min-width: 100%;
+  height: 100%;
+}
+
+.todo{
+    background-image: url("/images/wp1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+.contenedor {
+  position: relative;
+  padding: 2rem;
+}
+
+.texto {
+  width: 40%;
+  padding: 1rem;
+  display: block;
+  margin: 10% auto 10% auto;
+  background-color: rgba(253, 253, 253, 0.411);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  height: 100%
+  color: black;
+}
+
+.foto1 {
+  position: absolute;
+  display: inline;
+  left: 10%;
+}
+
+.foto2 {
+  position: absolute;
+  display: inline;
+  top: 20%;
+  margin-bottom: 2%;
+  right: 5%;
+}
+
+.img1 {
+  max-width: 25vw;
+  border-radius: 50%;
+}
+
+.img2 {
+  max-width: 30vw;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.info {
+
+  margin-top: 1rem;
+  margin-right: 10%;
+  margin-left: 1rem;
+  text-align: justify;
+  z-index: 10;
+  font-size: 1.2vw;
+}
+
+
+.titulo {
+    background-color: rgba(240, 248, 255, 0.363);
+  font-family: 'Yellowtail', cursive;
+  font-size: 10vw;
+  color: black;
+}
+
+.subtitulo {
+  margin-left: 1rem;
+  text-align: left;
+  font-size: 5vw;
+  font-family: 'Playfair Display', serif;
+}
+
+.info {
+  font-family: 'Playfair Display', serif;
+}
+
+table {
+  margin-top: 1rem;
+  font-size: 1.4vw;
+}
+
+ul {
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+h1,
+h2 {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1001px) {
+  .contenedor {
+    display: inline;
+    position: static;
+  }
+
+  .foto1 {
+
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .foto2 {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+
+  .img1 {
+    max-width: 20rem;
+    border-radius: 50%;
+  }
+
+  .img2 {
+    max-width: 25rem;
+    border-radius: 10px;
+    z-index: 10;
+  }
+
+  .texto {
+    width: 80%;
+    padding: 1rem;
+    display: block;
+    margin: 0 auto 0 auto;
+    background-color: rgba(253, 253, 253, 0.411);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    height: auto;
+    color: black;
+  }
+
+  .subtitulo {
+    margin-left: 0;
+    text-align: center;
+    font-size: 5vw;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .info {
+
+    margin-top: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: justify;
+    z-index: 10;
+    font-size: 1.2rem;
+  }
+
+  table {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .principal {
+    min-width: 100%;
+    background-image: url("../../assets/bs1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    background-size: cover;
+    height: auto;
+  }
+}

@@ -16,8 +16,8 @@ router.get('/allLinks',async(req,res)=>{
     //const fechas =  await pool.query('select fecha from sesiones');
     //console.log(fechas)
     //res.render('links/list',{sesiones});
-    const webinar =  await pool.query('select id_webinar, carrera.n_carrera, title, n_sesion, webinar.descripcion, fecha, img, expositores.nombre, expositores.apellido from webinar,  expositores,carrera where webinar.id_expositor = expositores.id_expositor and webinar.id_carrera = carrera.id_carrera;');
-    const cursos =  await pool.query('select * from cursos');
+    const webinar =  await pool.query('select id_webinar, carrera.n_carrera, title, n_sesion, webinar.descripcion, fecha, img, expositores.nombre, expositores.apellido from webinar,  expositores,carrera where webinar.id_expositor = expositores.id_expositor and webinar.id_carrera = carrera.id_carrera LIMIT 3;');
+    const cursos =  await pool.query('select id_curso, carrera.n_carrera, title, cursos.descripcion, fecha_in, img, expositores.nombre, expositores.apellido from cursos,  expositores,carrera where cursos.id_expositor = expositores.id_expositor and cursos.id_carrera = carrera.id_carrera ORDER BY fecha_in desc LIMIT 3 ;');
     res.render('public/allLinks',{webinar,cursos});
 });
 

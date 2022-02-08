@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto mt-5">
+            <div class="card text-center mt-5">
+                <div class="car-header mt-5">
+                    <h3>Registrarse</h3>
+                </div>
+                <div class="card-body">
+                    <form action="/links/editUsers/{{datos.id_user}}" method="POST">
+                        <div class="form-goup mt-3">
+                            <input type="email" name="email" placeholder="Email" class="form-control"
+                                value="{{datos.email}}" readonly>
+                        </div>
+                        <div class="form-goup mt-3">
+                            <input type="text" value="{{datos.nombres}}" name="nombres" placeholder="Nombres"
+                                class="form-control">
+                        </div>
+                        <div class="form-goup mt-3">
+                            <input type="text" name="apellidos" value="{{datos.apellidos}}" placeholder="Apellidos"
+                                class="form-control">
+                        </div>
+                        <div class="form-group mt-3">
+                            <h5>Tipo de usuario</h5>
+                            <select class="form-select" name="tipo_user" id="">
+                                <option value="1">Cliente</option>
+                                <option value="2">Administrador</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <button class="btn btn-success btn-block">
+                                Actualizar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

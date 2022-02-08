@@ -28,10 +28,11 @@ a{
 }
 
 .header2 {
-	position: fixed;
+	position: sticky;
 	top: 0;
 	left: 0;
 	right: 0;
+	
 	padding: 2rem 9%;
 	z-index: 1000;
 	display: flex;
@@ -719,7 +720,7 @@ main {
 	display: grid;
 	-ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
 		grid-template-columns: repeat(3, minmax(32rem, 0.9fr));
-	gap: 1.5rem;
+	
   }
   
   .packages .box-container .box {
@@ -729,8 +730,8 @@ main {
 	-webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 			box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 	border-radius: .5rem;
-	max-width: 330px;
-	width: 330px;
+	max-width: 310px;
+	width: 310px;
   }
   
   .packages .box-container .box:hover {
@@ -963,12 +964,18 @@ main {
 	.post-main-container{
 		grid-template-columns: repeat(2,1fr);
 	}
+	.packages .box-container{
+		grid-template-columns: repeat(2, minmax(32rem, 0.9fr));
+	}
 }
 
 
 
 
 @media (max-width: 768px) {
+	.heading {
+		margin-top: 10%;
+	  }
 	.header2 #menu-btn {
 	  display: inline-block;
 	}
@@ -1046,6 +1053,10 @@ main {
 	.post-main-container{
 		grid-template-columns: 1fr;
 	}
+	.packages .box-container .box {
+		max-width: 260px;
+	}
+
 
   }
   
@@ -1055,6 +1066,7 @@ main {
 	}
 	.heading {
 	  font-size: 3rem;
+	  margin-top: 20%;
 	}
 	.testimonial-grid{
 		grid-template-columns: repeat(1,1fr);
@@ -1062,7 +1074,7 @@ main {
 		
 	}
 	.packages .box-container {
-		grid-template-columns: repeat(1, minmax(32rem, 0.9fr));
+		grid-template-columns: repeat(1, minmax(10rem, 1fr));
 		justify-content: center;
   }
 
@@ -1073,7 +1085,6 @@ main {
 
 
 .pie-pagina{
-	margin-top: 10%;
     width: 100%;
     background-color: #0a141d;
 }
